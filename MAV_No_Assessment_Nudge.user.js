@@ -3,8 +3,10 @@
 // @namespace   https://damos.world
 // @description Nudge students based on assessment submission status
 // @include     https://moodle.cqu.edu.au/*
+// @require     https://greasemonkey.github.io/gm4-polyfill/gm4-polyfill.js
 // @grant       GM_openInTab
-// @version     0.0.3
+// @grant       GM.openInTab
+// @version     0.1.0
 // ==/UserScript==
 
 console.log("At the start") ;
@@ -30,7 +32,7 @@ try
         students.push(rows[i].querySelector('td.idnumber').textContent) ;
       }
       console.log("opening 'https://indicators.cqu.edu.au/easi/easi-courseview.php?coursecode="+course+"&selectStudents="+students.join()+"'") ;
-      GM_openInTab("https://indicators.cqu.edu.au/easi/easi-courseview.php?coursecode="+course+"&selectStudents="+students.join(),false);
+      GM.openInTab("https://indicators.cqu.edu.au/easi/easi-courseview.php?coursecode="+course+"&selectStudents="+students.join(),false);
     }
   },{"capture":true,"passive":false}) ;
 
